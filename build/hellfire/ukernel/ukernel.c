@@ -95,7 +95,6 @@ uint8_t HF_TaskReschedule(void){
 	uint8_t i=0;
 	uint16_t j=0xffff;
 
-	printf("Timeline: t%d\n", HF_timeline);
 	schedule = 0;
 	for(i=1;i<=HF_max_index;i++) //Foreach task entry.
     {
@@ -108,7 +107,6 @@ uint8_t HF_TaskReschedule(void){
 				{
 					task_delta += HF_task_entry->period;
 				}
-				printf("T%d, ptime:%d, ddelta:%d\n", HF_task_entry->id, task_time, task_delta);
 				if (task_delta < j && HF_task_entry->capacity_counter > 0)
 				{
 					j = task_delta;
@@ -131,7 +129,6 @@ uint8_t HF_TaskReschedule(void){
 	}else{
 		HF_task_entry = &HF_task[schedule];
 		HF_task_entry->capacity_counter--;
-		printf("\nT%d Scheduled.\n", HF_task_entry->id);
 		return schedule;
 	}
 }
