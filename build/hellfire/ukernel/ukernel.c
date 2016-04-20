@@ -89,20 +89,26 @@ static uint8_t HF_TaskBestEffortReschedule(){
 /*
 default RT scheduler (Rate Monotonic)
 */
+uint32_t HF_timeline;
 uint8_t HF_TaskReschedule(void){
 	uint8_t schedule;
 	uint8_t i=0;
 	uint16_t j=0xffff;
 
+	printf("Timeline: t%d\n", HF_timeline);
 	schedule = 0;
 	for(i=1;i<=HF_max_index;i++) //Foreach task entry.
     {
 		HF_task_entry = &HF_task[i];
 		if ((HF_task_entry->ptask) && (HF_task_entry->period > 0)){
 			if ((HF_task_entry->status == TASK_READY) || (HF_task_entry->status == TASK_NOT_RUN)){
-				if ((HF_task_entry->period < j) && (HF_task_entry->capacity_counter > 0)){
-					j = HF_task_entry->period;
-					schedule = i;
+				uint16_t task_time = HF_timeline % HF_task_entry->period;
+				uint16_t task_delta = HF_task_entry->deadline - task_time;
+				printf("T%d, ptime:%d, ddelta:%d\n", HF_task_entry->id, task_time, task_delta);
+				if (task_delta < j && HF_task_entry->capacity_counter > 0)
+				{
+					j = task_delta;
+					schedule = 1;
 				}
 				if (--HF_task_entry->priority == 0){
 					HF_task_entry->next_tick_count += HF_task_entry->period;
@@ -114,7 +120,7 @@ uint8_t HF_TaskReschedule(void){
 			}
 		}
 	}
-    
+    HF_timeline++;
 	if (schedule == 0){
 		HF_task_entry = &HF_task[0];
 		return 0;
