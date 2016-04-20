@@ -121,7 +121,7 @@ uint8_t HF_TaskReschedule(void){
 	}else{
 		HF_task_entry = &HF_task[schedule];
 		HF_task_entry->capacity_counter--;
-		printf("T%d Scheduled.\n", HF_task_entry->id);
+		printf("\nT%d Scheduled.\n", HF_task_entry->id);
 		return schedule;
 	}
 }
