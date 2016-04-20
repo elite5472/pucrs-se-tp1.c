@@ -104,6 +104,10 @@ uint8_t HF_TaskReschedule(void){
 			if ((HF_task_entry->status == TASK_READY) || (HF_task_entry->status == TASK_NOT_RUN)){
 				uint16_t task_time = HF_timeline % HF_task_entry->period;
 				uint16_t task_delta = HF_task_entry->deadline - task_time;
+				if (task_delta > 60000)
+				{
+					task_delta += HF_task_entry->period;
+				}
 				printf("T%d, ptime:%d, ddelta:%d\n", HF_task_entry->id, task_time, task_delta);
 				if (task_delta < j && HF_task_entry->capacity_counter > 0)
 				{
