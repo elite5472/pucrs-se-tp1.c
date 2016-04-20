@@ -98,7 +98,6 @@ uint8_t HF_TaskReschedule(void){
 	for(i=1;i<=HF_max_index;i++) //Foreach task entry.
     {
 		HF_task_entry = &HF_task[i];
-		printf("\nT%d - Status: %d. Deadline in %d, Counter %d.\n", HF_task_entry->id, HF_task_entry->status, HF_task_entry->deadline, HF_task_entry->deadline_counter);
 		if ((HF_task_entry->ptask) && (HF_task_entry->period > 0)){
 			if ((HF_task_entry->status == TASK_READY) || (HF_task_entry->status == TASK_NOT_RUN)){
 				if ((HF_task_entry->period < j) && (HF_task_entry->capacity_counter > 0)){
@@ -122,6 +121,7 @@ uint8_t HF_TaskReschedule(void){
 	}else{
 		HF_task_entry = &HF_task[schedule];
 		HF_task_entry->capacity_counter--;
+		printf("T%d Scheduled.\n" &HF_Task[schedule]);
 		return schedule;
 	}
 }
