@@ -112,7 +112,7 @@ uint8_t HF_TaskReschedule(void){
 					j = task_delta;
 					schedule = i;
 				}
-				if (--HF_task_ent111ry->priority == 0){
+				if (--HF_task_entry->priority == 0){
 					HF_task_entry->next_tick_count += HF_task_entry->period;
 					HF_task_entry->priority = HF_task_entry->period;
 					if (HF_task_entry->capacity_counter > 0)
