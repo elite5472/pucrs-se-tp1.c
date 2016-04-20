@@ -4,8 +4,10 @@ void task(void){
 	int32_t tid;
 
 	tid = HF_CurrentTaskId();
+    int x;
 	for (;;){
-		printf("T%d-", tid);
+        x++;
+		//printf("T%d-", tid);
 	}
 }
 
