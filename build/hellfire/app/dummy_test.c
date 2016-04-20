@@ -7,7 +7,7 @@ void task(void){
 	printf("T%d", tid);
 	int32_t x;
 	for (;;){
-		i++;
+		x++;
 	}
 }
 
