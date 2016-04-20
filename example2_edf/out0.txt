@@ -1,0 +1,220 @@
+
+===========================================================
+HellfireOS RT Lite v1.61
+Apr 20 2016, 14:19:41 (gcc 4.6.1)
+Embedded Systems Group - GSE, PUCRS - [2007 - 2015]
+===========================================================
+CPU ID:                0
+Architecture:          Plasma CPU
+Clock frequency:       25000 kHz
+System tick time:      10485 us
+TCB entry size:        196 bytes
+TCB size:              1960 bytes
+Heap size:             32768 bytes
+Maximum tasks:         10
+Memory info
+    .text              15440 bytes (10000000 - 10003c50)
+    .data              1764 bytes (10003c50 - 10004334)
+    .bss               35396 bytes (10004334 - 1000cd78)
+System memory usage:   52600 bytes
+KERNEL: initializing...
+KERNEL: [Idle Task] (BE), id: 0, niceness: 128, addr: 100037cc, sp: 100049d0, ss: 1024 bytes
+KERNEL: [t1] (RT), id: 1, p:10, c:3, d:10, addr: 10003b30, sp: 100051d4, ss: 2048 bytes
+KERNEL: [t2] (RT), id: 2, p:15, c:3, d:15, addr: 10003b30, sp: 100059d8, ss: 2048 bytes
+KERNEL: [t3] (RT), id: 3, p:20, c:2, d:20, addr: 10003b30, sp: 100061dc, ss: 2048 bytes
+KERNEL: [t4] (RT), id: 4, p:25, c:2, d:25, addr: 10003b30, sp: 100069e0, ss: 2048 bytes
+KERNEL: [t5] (RT), id: 5, p:30, c:1, d:30, addr: 10003b30, sp: 100071e4, ss: 2048 bytes
+KERNEL: free heap: 21476 bytes
+KERNEL: timer driver registered
+KERNEL: hellfire is up and running!
+KERNEL: Idle task
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T3.
+
+Scheduled T3.
+
+Scheduled T4.
+
+Scheduled T4.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T5.
+
+Idling one cycle...
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T3.
+
+Scheduled T3.
+
+Scheduled T4.
+
+Scheduled T4.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T5.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T3.
+
+Scheduled T3.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T4.
+
+Scheduled T4.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T3.
+
+Scheduled T3.
+
+Scheduled T5.
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T2.
+
+Scheduled T4.
+
+Scheduled T4.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T3.
+
+Scheduled T3.
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Idling one cycle...
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T1.
+
+Scheduled T2.
+
+Scheduled T2.
