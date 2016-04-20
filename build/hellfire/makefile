@@ -89,6 +89,84 @@ dummy_test:
 	mv test.cnt code0.cnt
 	mv test.map code0.map
 	hexdump -v -e '4/1 "%02x" "\n"' code0.bin > code0.txt
+	
+example1:
+	$(AS_MIPS) -o boot.o ./ukernel/hal/$(ARCHITECTURE)/boot.s
+	$(GCC_MIPS) -o interrupt.o ./ukernel/hal/$(ARCHITECTURE)/interrupt.c $(OS_CONFIG)
+	$(GCC_MIPS) -o hal.o ./ukernel/hal/$(ARCHITECTURE)/hal.c $(OS_CONFIG)
+	$(GCC_MIPS) -o mutex.o ./ukernel/mutex.c $(OS_CONFIG)
+	$(GCC_MIPS) -o ipc.o ./ukernel/ipc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o hflibc.o ./hflibc/hflibc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o malloc.o ./hflibc/malloc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o ukernel.o ./ukernel/ukernel.c $(OS_CONFIG)
+	$(GCC_MIPS) -o mpsoc.o ./ukernel/hal/$(ARCHITECTURE)/mpsoc.c $(OS_CONFIG)
+
+	$(GCC_MIPS) -o example1.o ./app/example1.c $(OS_CONFIG)
+	$(LD_MIPS) -Ttext 0x10000000 -e_entry -Map test.map -N -o test.axf \
+		boot.o interrupt.o hal.o mutex.o ipc.o hflibc.o malloc.o ukernel.o mpsoc.o example1.o
+	$(DUMP_MIPS) --disassemble --reloc test.axf > test.lst
+	$(DUMP_MIPS) -h test.axf > test.sec
+	$(DUMP_MIPS) -s test.axf > test.cnt
+	$(OBJ_MIPS) -O binary test.axf test.bin
+	mv test.axf code0.axf
+	mv test.bin code0.bin
+	mv test.lst code0.lst
+	mv test.sec code0.sec
+	mv test.cnt code0.cnt
+	mv test.map code0.map
+	hexdump -v -e '4/1 "%02x" "\n"' code0.bin > code0.txt
+	
+example2:
+	$(AS_MIPS) -o boot.o ./ukernel/hal/$(ARCHITECTURE)/boot.s
+	$(GCC_MIPS) -o interrupt.o ./ukernel/hal/$(ARCHITECTURE)/interrupt.c $(OS_CONFIG)
+	$(GCC_MIPS) -o hal.o ./ukernel/hal/$(ARCHITECTURE)/hal.c $(OS_CONFIG)
+	$(GCC_MIPS) -o mutex.o ./ukernel/mutex.c $(OS_CONFIG)
+	$(GCC_MIPS) -o ipc.o ./ukernel/ipc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o hflibc.o ./hflibc/hflibc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o malloc.o ./hflibc/malloc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o ukernel.o ./ukernel/ukernel.c $(OS_CONFIG)
+	$(GCC_MIPS) -o mpsoc.o ./ukernel/hal/$(ARCHITECTURE)/mpsoc.c $(OS_CONFIG)
+
+	$(GCC_MIPS) -o example2.o ./app/example2.c $(OS_CONFIG)
+	$(LD_MIPS) -Ttext 0x10000000 -e_entry -Map test.map -N -o test.axf \
+		boot.o interrupt.o hal.o mutex.o ipc.o hflibc.o malloc.o ukernel.o mpsoc.o example2.o
+	$(DUMP_MIPS) --disassemble --reloc test.axf > test.lst
+	$(DUMP_MIPS) -h test.axf > test.sec
+	$(DUMP_MIPS) -s test.axf > test.cnt
+	$(OBJ_MIPS) -O binary test.axf test.bin
+	mv test.axf code0.axf
+	mv test.bin code0.bin
+	mv test.lst code0.lst
+	mv test.sec code0.sec
+	mv test.cnt code0.cnt
+	mv test.map code0.map
+	hexdump -v -e '4/1 "%02x" "\n"' code0.bin > code0.txt
+	
+example3:
+	$(AS_MIPS) -o boot.o ./ukernel/hal/$(ARCHITECTURE)/boot.s
+	$(GCC_MIPS) -o interrupt.o ./ukernel/hal/$(ARCHITECTURE)/interrupt.c $(OS_CONFIG)
+	$(GCC_MIPS) -o hal.o ./ukernel/hal/$(ARCHITECTURE)/hal.c $(OS_CONFIG)
+	$(GCC_MIPS) -o mutex.o ./ukernel/mutex.c $(OS_CONFIG)
+	$(GCC_MIPS) -o ipc.o ./ukernel/ipc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o hflibc.o ./hflibc/hflibc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o malloc.o ./hflibc/malloc.c $(OS_CONFIG)
+	$(GCC_MIPS) -o ukernel.o ./ukernel/ukernel.c $(OS_CONFIG)
+	$(GCC_MIPS) -o mpsoc.o ./ukernel/hal/$(ARCHITECTURE)/mpsoc.c $(OS_CONFIG)
+
+	$(GCC_MIPS) -o example3.o ./app/example3.c $(OS_CONFIG)
+	$(LD_MIPS) -Ttext 0x10000000 -e_entry -Map test.map -N -o test.axf \
+		boot.o interrupt.o hal.o mutex.o ipc.o hflibc.o malloc.o ukernel.o mpsoc.o example3.o
+	$(DUMP_MIPS) --disassemble --reloc test.axf > test.lst
+	$(DUMP_MIPS) -h test.axf > test.sec
+	$(DUMP_MIPS) -s test.axf > test.cnt
+	$(OBJ_MIPS) -O binary test.axf test.bin
+	mv test.axf code0.axf
+	mv test.bin code0.bin
+	mv test.lst code0.lst
+	mv test.sec code0.sec
+	mv test.cnt code0.cnt
+	mv test.map code0.map
+	hexdump -v -e '4/1 "%02x" "\n"' code0.bin > code0.txt
 
 preemption_test:
 	$(AS_MIPS) -o boot.o ./ukernel/hal/$(ARCHITECTURE)/boot.s

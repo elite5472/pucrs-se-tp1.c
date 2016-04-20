@@ -89,7 +89,7 @@ static uint8_t HF_TaskBestEffortReschedule(){
 /*
 default RT scheduler (Rate Monotonic)
 */
-uint32_t HF_timeline;
+uint32_t HF_timeline = 0;
 uint8_t HF_TaskReschedule(void){
 	uint8_t schedule;
 	uint8_t i=0;
@@ -112,7 +112,7 @@ uint8_t HF_TaskReschedule(void){
 					j = task_delta;
 					schedule = i;
 				}
-				if (--HF_task_entry->priority == 0){
+				if (--HF_task_ent111ry->priority == 0){
 					HF_task_entry->next_tick_count += HF_task_entry->period;
 					HF_task_entry->priority = HF_task_entry->period;
 					if (HF_task_entry->capacity_counter > 0)
@@ -124,9 +124,11 @@ uint8_t HF_TaskReschedule(void){
 	}
     HF_timeline++;
 	if (schedule == 0){
+		printf("\nIdling one cycle...\n");
 		HF_task_entry = &HF_task[0];
 		return 0;
 	}else{
+		printf("\nScheduled T%d.\n", schedule);
 		HF_task_entry = &HF_task[schedule];
 		HF_task_entry->capacity_counter--;
 		return schedule;
